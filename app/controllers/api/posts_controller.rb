@@ -1,5 +1,4 @@
 class Api::PostsController < ApiController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def index
     @posts = Post.limit(10)
@@ -7,6 +6,8 @@ class Api::PostsController < ApiController
   end
 
   def show
+    @post = Post.find(params[:id])
+    render json: @post
   end
 
   def new
