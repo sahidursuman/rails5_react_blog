@@ -15,7 +15,6 @@ export function fetchPosts() {
 }
 
 export function fetchPost(id) {
-  console.log(id)
   const request = axios.get(`${ROOT_URL}/posts/${id}`);
 
   return {

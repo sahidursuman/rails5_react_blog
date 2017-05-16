@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { HashRouter, BrowserRouter, Route, Switch } from 'react-router-dom';
 import promise from 'redux-promise';
 
 import reducers from './reducers';
@@ -15,13 +15,9 @@ ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
     <BrowserRouter>
       <div>
-        <Switch>
-          <Route path="/posts/:id" component={PostsShow} />
-          <Route path="/" component={PostsIndex} />
-        </Switch>
+        <Route path="/posts/:id" component={PostsShow} />
+        <Route path="/" component={PostsIndex} />
       </div>
     </BrowserRouter>
   </Provider>
   , document.querySelector('.app'));
-
-// https://reacttraining.com/react-router/web/api/MemoryRouter
