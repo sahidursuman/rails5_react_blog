@@ -18,7 +18,8 @@ class PostsShow extends Component {
 
     return (
       <div>
-        <Link to="/">Back To Index</Link>
+        <br />
+        <Link className="btn btn-info" to="/">Back To Index</Link>
         <h3>{post.title}</h3>
         <p>{post.content}</p>
       </div>
