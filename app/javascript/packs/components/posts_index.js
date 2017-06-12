@@ -13,11 +13,11 @@ class PostsIndex extends Component {
     this.props.deletePost(id, () => {
       this.props.history.push('/');
     });
-    // this.props.fetchPosts();
   }
 
   renderPosts() {
-    return _.map(this.props.posts, post => {
+    const posts = this.props.posts
+    return _.map(posts, post => {
       return (
         <tr key={post.id}>
           <td>{post.thumb_url}</td>
@@ -39,6 +39,11 @@ class PostsIndex extends Component {
     return (
       <div>
         <h3>Posts</h3>
+        <div className="text-xs-right">
+          <Link className="btn btn-primary" to="/posts/new">
+            Add a Post
+          </Link>
+        </div>
         <table className="table table-condensed">
           <thead>
             <tr>

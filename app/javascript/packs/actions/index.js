@@ -3,6 +3,7 @@ import axios from 'axios';
 export const FETCH_POSTS = 'fetch_posts';
 export const FETCH_POST = 'fetch_post';
 export const DELETE_POST = 'delete_post';
+export const CREATE_POST = 'create_post';
 
 const ROOT_URL = '/api';
 
@@ -32,3 +33,13 @@ export function deletePost(id, callback) {
     payload: id
   }
 }
+
+export function createPost(values, callback) {
+  const request = axios.post(`${ROOT_URL}/posts`, values)//.then(() => callback());
+
+  return {
+    type: CREATE_POST,
+    payload: request
+  };
+}
+

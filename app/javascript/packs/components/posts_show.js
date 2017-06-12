@@ -10,11 +10,10 @@ class PostsShow extends Component {
   }
 
   render() {
-    const { post } = this.props;
-
-    if (!post) {
+    if (_.isEmpty(this.props.posts)) {
       return <div>Loading...</div>;
     }
+    const post = this.props.posts[Object.keys(this.props.posts)[0]]
 
     return (
       <div>
@@ -27,8 +26,12 @@ class PostsShow extends Component {
   }
 }
 
-function mapStateToProps({ posts }, ownProps) {
-  return { post: posts[ownProps.match.params.id] };
+
+
+function mapStateToProps(state) {
+  return { posts: state.posts };
 }
 
 export default connect(mapStateToProps, { fetchPost })(PostsShow);
+
+

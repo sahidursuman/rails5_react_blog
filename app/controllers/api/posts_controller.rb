@@ -2,12 +2,12 @@ class Api::PostsController < ApiController
 
   def index
     @posts = Post.limit(20)
-    render json: @posts
+    render json: Hash[@posts.all.map { |post| [post.id, post] } ]
   end
 
   def show
     @post = Post.find(params[:id])
-    render json: @post
+    render json: Hash[@post.id, @post]
   end
 
   def new
@@ -19,16 +19,20 @@ class Api::PostsController < ApiController
 
   def create
     @post = Post.new(post_params)
+    @post.save
 
-    respond_to do |format|
-      if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
-        format.json { render :show, status: :created, location: @post }
-      else
-        format.html { render :new }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
-      end
-    end
+
+    render json: @post
+
+    # respond_to do |format|
+    #   if @post.save
+    #     format.html { redirect_to @post, notice: 'Post was successfully created.' }
+    #     format.json { render :show, status: :created, location: @post }
+    #   else
+    #     format.html { render :new }
+    #     format.json { render json: @post.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   def update

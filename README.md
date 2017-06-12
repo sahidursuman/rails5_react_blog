@@ -1,43 +1,13 @@
-# README
+## Installation
+`yarn`
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+`bundle exec rake db:create`
 
-Things you may want to cover:
+`bundle exec rake db:migrate`
 
-* Ruby version
+`bundle exec rake db:seed`
 
-* System dependencies
+## Start
+`./bin/webpack-dev-server`
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-
-
-
-
-* rails new myapp --webpack=react
-* rails new myapp --webpack=angular
-* rails new myapp --webpack=vue
-* rails g controller home index --skip-assets
-* ./bin/webpack-dev-server
-
-
-
-* https://reacttraining.com/react-router/web/example/custom-link
-
-
-
-
+`rails s`
