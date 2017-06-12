@@ -34,6 +34,6 @@ gem "figaro"
 gem 'oj'
 gem 'active_model_serializers', '0.9.3'
 
-gem 'bootstrap-sass', '~> 3.3.6'
+gem 'materialize-sass'
 gem 'jquery-rails'
 
