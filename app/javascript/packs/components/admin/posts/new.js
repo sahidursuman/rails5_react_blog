@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { createPost } from '../actions';
+import { createPost } from '../../../actions';
 
-class PostsNew extends Component {
+class PostsAdminNew extends Component {
   renderField(field) {
     const { meta: { touched, error } } = field;
     const className = `form-group ${touched && error ? 'has-danger' : ''}`;
@@ -68,5 +68,5 @@ export default reduxForm({
   validate,
   form: 'PostsNewForm'
 })(
-  connect(null,{ createPost })(PostsNew)
+  connect(null,{ createPost })(PostsAdminNew)
 );

@@ -19,7 +19,6 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 2.13.0'
   gem 'selenium-webdriver'
-  gem 'faker'
   gem 'sqlite3'
 end
 
@@ -30,6 +29,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
+gem 'faker'
 gem "figaro"
 gem 'oj'
 gem 'active_model_serializers', '0.9.3'

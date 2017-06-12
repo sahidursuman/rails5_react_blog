@@ -2,9 +2,9 @@ import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { fetchPosts, deletePost} from '../actions';
+import { fetchPosts, deletePost} from '../../../actions';
 
-class PostsIndex extends Component {
+class PostsAdminIndex extends Component {
   componentDidMount() {
     this.props.fetchPosts();
   }
@@ -69,4 +69,4 @@ function mapStateToProps(state) {
   return { posts: state.posts };
 }
 
-export default connect(mapStateToProps, { fetchPosts, deletePost})(PostsIndex);
+export default connect(mapStateToProps, { fetchPosts, deletePost})(PostsAdminIndex);

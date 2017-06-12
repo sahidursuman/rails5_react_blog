@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { fetchPost } from '../actions';
+import { fetchPost } from '../../../actions';
 
-class PostsShow extends Component {
+class PostsAdminShow extends Component {
   componentDidMount() {
     const { id } = this.props.match.params;
     this.props.fetchPost(id);
@@ -32,6 +32,6 @@ function mapStateToProps(state) {
   return { posts: state.posts };
 }
 
-export default connect(mapStateToProps, { fetchPost })(PostsShow);
+export default connect(mapStateToProps, { fetchPost })(PostsAdminShow);
 
 

@@ -9,6 +9,6 @@ private
   end
 
   def set_thumb
-    self.thumb_url = "https://unsplash.it/300/300/?random"
+    self.thumb_url = "https://unsplash.it/300/300"
   end
 end
