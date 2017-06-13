@@ -6,10 +6,15 @@ export default class Navbar extends Component {
     return (
       <nav>
         <div className="black nav-wrapper">
-          <a href="#" className="brand-logo">Blog</a>
+          <Link className="brand-logo" to={`/posts/`}>Blog</Link>
+          <ul className="hide-on-med-and-down" style={{marginLeft: 70 + 'px'}}>
+            <li><Link to={`/admin/posts`}>Admin</Link></li>
+          </ul>
           <ul className="right hide-on-med-and-down">
-            <li><a href="#">Admin</a></li>
-            <li><a href="#">Posts</a></li>
+            <li><Link to={`/posts/`}>Posts</Link></li>
+            <li><a href="#">login</a></li>
+            <li><a href="#">logout</a></li>
+            <li><a href="#">profil</a></li>
           </ul>
         </div>
       </nav>

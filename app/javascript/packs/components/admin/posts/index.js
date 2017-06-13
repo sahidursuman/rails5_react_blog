@@ -20,15 +20,13 @@ class PostsAdminIndex extends Component {
     return _.map(posts, post => {
       return (
         <tr key={post.id}>
-          <td>{post.thumb_url}</td>
           <td>{post.id}</td>
           <td>{post.title}</td>
-          <td>{post.slug}</td>
-          <td>{post.created_at}</td>
-          <td>{post.update_at}</td>
+          <td>{post.created}</td>
+          <td>{post.updated}</td>
           <td>
-            <Link className="btn btn-info" to={`/posts/${post.id}`}>Show</Link>
-            <button className="btn btn-danger" onClick={this.onDeleteClick.bind(this, post.id)}>Delete</button>
+            <Link className="btn btn-small orange" to={`/posts/${post.id}`}>Edit</Link>
+            <button className="btn btn-small red" onClick={this.onDeleteClick.bind(this, post.id)}>Delete</button>
           </td>
         </tr>
       );
@@ -38,21 +36,18 @@ class PostsAdminIndex extends Component {
   render() {
     return (
       <div>
-        <h3>Posts</h3>
         <div className="text-xs-right">
-          <Link className="btn btn-primary" to="/posts/new">
+          <Link className="btn btn-small blue" to={`/admin/posts/new`}>
             Add a Post
           </Link>
         </div>
-        <table className="table table-condensed">
+        <table className="striped">
           <thead>
             <tr>
-              <th>thumb</th>
               <th>id</th>
               <th>title</th>
-              <th>slug</th>
-              <th>created_at</th>
-              <th>update_at</th>
+              <th>created</th>
+              <th>updated</th>
               <th width="10%">action</th>
             </tr>
           </thead>

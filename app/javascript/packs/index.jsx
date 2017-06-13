@@ -6,20 +6,13 @@ import promise from 'redux-promise';
 import reducers from './reducers';
 
 import App from './app';
-import Navbar from './container/navbar';
-import Footer from './container/footer';
 
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 
 ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
     <div>
-      <Navbar></Navbar>
-      <main>
-        <div className="full-width">
-          <App></App>
-        </div>
-      </main>
+      <App></App>
     </div>
   </Provider>
   , document.querySelector('.app'));

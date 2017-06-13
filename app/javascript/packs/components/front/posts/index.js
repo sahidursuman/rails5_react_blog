@@ -19,7 +19,7 @@ class PostsIndex extends Component {
     const posts = this.props.posts
     return _.map(posts, post => {
       return (
-          <div key={post.id} className="col s12 m4">
+          <div key={post.id} className="col s6 m6">
             <div className="card medium">
               <div className="card-image">
                 <img src={post.thumb_url}></img>
@@ -40,11 +40,13 @@ class PostsIndex extends Component {
 
   render() {
     return (
-      <div>
-        <h3>Posts</h3>
-          <div className="container-fluid">
-            <div className="row">
-              {this.renderPosts()}
+      <div className="full-width">
+        <div className="row">
+          <div className="col s12 m8">
+            {this.renderPosts()}
+          </div>
+          <div className="col s12 m2">
+            <p>menu</p>
           </div>
         </div>
       </div>
