@@ -3,6 +3,9 @@ import { Field, reduxForm } from 'redux-form';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createPost } from '../../../actions';
+import { Redirect, BrowserRouter, Route, Switch } from 'react-router-dom';
+
+
 
 class PostsAdminNew extends Component {
   renderField(field) {
@@ -25,29 +28,34 @@ class PostsAdminNew extends Component {
   }
 
   onSubmit(values) {
-    this.props.createPost(values, () => {
-      this.props.history.push('/');
-    });
+    this.props.createPost(values, () => {});
+    this.props.history.push('/admin/posts');
   }
 
   render() {
     const { handleSubmit } = this.props;
 
     return (
-      <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-        <Field
-          label="Title For Post"
-          name="title"
-          component={this.renderField}
-        />
-        <Field
-          label="Post Content"
-          name="content"
-          component={this.renderField}
-        />
-        <button type="submit" className="btn btn-primary">Submit</button>
-        <Link to="/" className="btn btn-danger">Cancel</Link>
-      </form>
+      <div className="full-width">
+        <div className="row">
+          <div className="col s12 m8">
+            <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+              <Field
+                label="Title For Post"
+                name="title"
+                component={this.renderField}
+              />
+              <Field
+                label="Post Content"
+                name="content"
+                component={this.renderField}
+              />
+              <Link to="/admin/posts" className="btn btn-small orange">Cancel</Link>
+              <button type="submit" className="btn btn-small green right">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
     );
   }
 }

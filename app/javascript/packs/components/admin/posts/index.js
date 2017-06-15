@@ -11,8 +11,8 @@ class PostsAdminIndex extends Component {
 
   onDeleteClick(id) {
     this.props.deletePost(id, () => {
-      this.props.history.push('/');
     });
+    this.props.history.push('/admin/posts');
   }
 
   renderPosts() {
@@ -25,7 +25,6 @@ class PostsAdminIndex extends Component {
           <td>{post.created}</td>
           <td>{post.updated}</td>
           <td>
-            <Link className="btn btn-small orange" to={`/posts/${post.id}`}>Edit</Link>
             <button className="btn btn-small red" onClick={this.onDeleteClick.bind(this, post.id)}>Delete</button>
           </td>
         </tr>
@@ -35,26 +34,30 @@ class PostsAdminIndex extends Component {
 
   render() {
     return (
-      <div>
-        <div className="text-xs-right">
-          <Link className="btn btn-small blue" to={`/admin/posts/new`}>
-            Add a Post
-          </Link>
+      <div className="full-width">
+        <div className="row">
+          <div className="col s12 m12">
+            <div className="text-xs-right">
+              <Link className="btn btn-small blue" to={`/admin/posts/new`}>
+                Add a Post
+              </Link>
+            </div>
+            <table className="striped">
+              <thead>
+                <tr>
+                  <th>id</th>
+                  <th>title</th>
+                  <th>created</th>
+                  <th>updated</th>
+                  <th width="10%">action</th>
+                </tr>
+              </thead>
+              <tbody>
+                {this.renderPosts()}
+              </tbody>
+            </table>
+          </div>
         </div>
-        <table className="striped">
-          <thead>
-            <tr>
-              <th>id</th>
-              <th>title</th>
-              <th>created</th>
-              <th>updated</th>
-              <th width="10%">action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {this.renderPosts()}
-          </tbody>
-        </table>
       </div>
     );
   }
